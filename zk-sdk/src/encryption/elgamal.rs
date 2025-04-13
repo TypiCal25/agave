@@ -334,8 +334,8 @@ impl EncodableKeypair for ElGamalKeypair {
 
 /// Public key for the ElGamal encryption scheme.
 #[cfg_attr(target_arch = "wasm32", wasm_bindgen)]
-#[derive(Clone, Copy, Debug, Default, Deserialize, Eq, PartialEq, Serialize, Zeroize)]
-pub struct ElGamalPubkey(RistrettoPoint);
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq, Zeroize, Serialize, Deserialize)]
+pub struct ElGamalPubkey(pub RistrettoPoint);
 impl ElGamalPubkey {
     /// Derives the `ElGamalPubkey` that uniquely corresponds to an `ElGamalSecretKey`.
     pub fn new(secret: &ElGamalSecretKey) -> Self {
